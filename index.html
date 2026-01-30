@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد جمال | Mohammed Gamal - Content Creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #6F8A4F;
+            --yellow: #F2D94E;
+            --brown: #8A5A3C;
+            --pink: #F664EF;
+            --black: #1a1a1a;
+            --white: #fafafa;
+            --bg-light: #f5f3ee;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Baloo Bhaijaan 2', cursive, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--black);
+            line-height: 1.7;
+            transition: direction 0.3s ease;
+        }
+
+        /* ===== LANGUAGE TOGGLE ===== */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            background: var(--black);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        [dir="ltr"] .lang-toggle {
+            left: auto;
+            right: 20px;
+        }
+
+        .lang-toggle button {
+            font-family: 'Baloo Bhaijaan 2', cursive, sans-serif;
+            border: none;
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: transparent;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .lang-toggle button.active {
+            background: var(--green);
+            color: white;
+        }
+
+        .lang-toggle button:hover:not(.active) {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--black) 0%, #2a2a2a 50%, var(--brown) 100%);
+            color: white;
+            padding: 80px 40px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 70%, rgba(111, 138, 79, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(246, 100, 239, 0.08) 0%, transparent 50%);
+            animation: slowRotate 30s linear infinite;
+        }
+
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-img-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--yellow);
+            box-shadow: 0 0 30px rgba(242, 217, 78, 0.3);
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--yellow);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero .bio {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.85);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ===== CONTACT BAR ===== */
+        .contact-bar {
+            background: var(--green);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            color: white;
+            font-weight: 500;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--yellow);
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--yellow);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ===== SECTION STYLING ===== */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--brown);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .section-title .icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        /* ===== EXPERIENCE CARDS ===== */
+        .exp-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border-right: 4px solid var(--green);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        [dir="ltr"] .exp-card {
+            border-right: none;
+            border-left: 4px solid var(--green);
+        }
+
+        .exp-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .exp-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+
+        .exp-card .date {
+            font-size: 0.85rem;
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .exp-card .desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-top: 6px;
+        }
+
+        /* ===== SKILLS GRID ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .skill-card .skill-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+
+        .skill-card .skill-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .skill-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        /* ===== PORTFOLIO / WORKS ===== */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .portfolio-card-header {
+            padding: 20px 24px 14px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .portfolio-card-header .cat-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .portfolio-card-header .cat-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: white;
+        }
+
+        .portfolio-card-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .portfolio-card-header .count {
+            font-size: 0.85rem;
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .portfolio-card-body {
+            padding: 0 24px 20px;
+        }
+
+        .sample-title {
+            font-size: 0.88rem;
+            color: #555;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .sample-title:last-child {
+            border-bottom: none;
+        }
+
+        .sample-title::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--yellow);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 10px;
+        }
+
+        /* ===== PRODUCT SAMPLES ===== */
+        .product-samples {
+            background: var(--card-bg);
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 2px dashed var(--yellow);
+        }
+
+        .product-samples h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 12px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .product-tag {
+            background: linear-gradient(135deg, var(--yellow), #e6c93a);
+            color: var(--black);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .edu-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--brown), #a06b45);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .edu-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .edu-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .edu-info .edu-place {
+            color: var(--green);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .edu-info .edu-date {
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        /* ===== INTERESTS ===== */
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .interest-tag {
+            background: var(--card-bg);
+            border: 2px solid var(--green);
+            color: var(--green);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .interest-tag:hover {
+            background: var(--green);
+            color: white;
+        }
+
+        /* ===== LANGUAGES ===== */
+        .lang-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .lang-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .lang-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 4px;
+        }
+
+        .lang-card .level {
+            font-size: 0.85rem;
+            color: var(--pink);
+            font-weight: 600;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--green);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+        }
+
+        .footer .name {
+            color: var(--yellow);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* ===== DIVIDER ===== */
+        .color-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--green), var(--yellow), var(--pink), var(--brown));
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .bio {
+                font-size: 0.95rem;
+            }
+
+            .contact-bar {
+                gap: 16px;
+                padding: 14px 20px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .edu-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .profile-img-container {
+                width: 140px;
+                height: 140px;
+            }
+
+            .contact-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .lang-toggle {
+                top: 10px;
+                left: 10px;
+            }
+
+            [dir="ltr"] .lang-toggle {
+                left: auto;
+                right: 10px;
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ===== SCROLL ANIMATION ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button id="btn-ar" class="active" onclick="switchLang('ar')">العربية</button>
+        <button id="btn-en" onclick="switchLang('en')">English</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="profile-img-container">
+                <img src="profile.jpeg" alt="Mohammed Gamal">
+            </div>
+            <h1>
+                <span class="ar-text">محمد جمال</span>
+                <span class="en-text" style="display:none;">Mohammed Gamal</span>
+            </h1>
+            <div class="subtitle">
+                <span class="ar-text">كاتب محتوى ومخرج نصوص</span>
+                <span class="en-text" style="display:none;">Content Writer & Script Director</span>
+            </div>
+            <p class="bio">
+                <span class="ar-text">كاتب محتوى محترف، أعمل على إنتاج مختلف أشكال المحتوى الرقمي والتحريري باحترافية عالية، من الفكرة إلى التنفيذ، مع عناية دقيقة باللغة والبناء والرسالة. أقدم رؤيتي للمشاهد المناسبة للنص وكيفية الانتقال بين المشاهد لصناعة محتوى مؤثر يلامس الوعي ويخاطب الجمهور بعمق.</span>
+                <span class="en-text" style="display:none;">A professional content writer specializing in producing diverse forms of digital and editorial content with high professionalism, from concept to execution. I craft compelling narratives with meticulous attention to language, structure, and message. Beyond writing, I provide creative direction on scene selection and visual transitions, creating impactful content that resonates deeply with audiences.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Bar -->
+    <div class="contact-bar">
+        <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <a href="tel:+905357350482" dir="ltr">+90 535 735 04 82</a>
+        </div>
+        <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:mohgemy70@gmail.com">mohgemy70@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>
+                <span class="ar-text">تركيا، إسطنبول</span>
+                <span class="en-text" style="display:none;">Istanbul, Turkey</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="color-divider"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Stats Bar -->
+        <div class="stats-bar fade-in">
+            <div class="stat-item">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">
+                    <span class="ar-text">عمل مكتوب</span>
+                    <span class="en-text" style="display:none;">Written Works</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">6</div>
+                <div class="stat-label">
+                    <span class="ar-text">تخصصات محتوى</span>
+                    <span class="en-text" style="display:none;">Content Specialties</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">+4</div>
+                <div class="stat-label">
+                    <span class="ar-text">سنوات خبرة</span>
+                    <span class="en-text" style="display:none;">Years Experience</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">
+                    <span class="ar-text">جهات عمل</span>
+                    <span class="en-text" style="display:none;">Organizations</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="section fade-in">
+            <div class="section-title">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                </div>
+                <span class="ar-text">الخبرات المهنية</span>
+                <span class="en-text" style="display:none;">Professional Experience</span>
+            </div>
+
+            <div class="exp-card">
+                <h3>
+                    <span class="ar-text">كتابة المحتوى والتدقيق اللغوي - مجلة المجتمع الكويتية</span>
+                    <span class="en-text" style="display:none;">Content Writing & Proofreading - Al-Mujtama Kuwaiti Magazine</span>
+                </h3>
+                <div class="date">
+                    <span class="ar-text">2022 - حتى الآن</span>
+                    <span class="en-text" style="display:none;">2022 - Present</span>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <h3>
+                    <span class="ar-text">كتابة المحتوى والتدقيق اللغوي - مؤسسة يقظة</span>
+                    <span class="en-text" style="display:none;">Content Writing & Proofreading - Yaqza Foundation</span>
+                </h3>
+                <div class="date">
+                    <span class="ar-text">2023 - حتى الآن</span>
+                    <span class="en-text" style="display:none;">2023 - Present</span>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <h3>
+                    <span class="ar-text">كتابة المحتوى والتدقيق اللغوي - مؤسسة جوار</span>
+                    <span class="en-text" style="display:none;">Content Writing & Proofreading - Jiwar Foundation</span>
+                </h3>
+                <div class="date">
+                    <span class="ar-text">2022 - 2023</span>
+                    <span class="en-text" style="display:none;">2022 - 2023</span>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <h3>
+                    <span class="ar-text">إدارة الصفحات وخدمة العملاء - مؤسسة ركائز</span>
+                    <span class="en-text" style="display:none;">Social Media Management & Customer Service - Raka'iz Foundation</span>
+                </h3>
+                <div class="date">
+                    <span class="ar-text">2020 - 2023</span>
+                    <span class="en-text" style="display:none;">2020 - 2023</span>
+                </div>
+            </div>
+
+            <div class="exp-card">
+                <h3>
+                    <span class="ar-text">إدارة الصفحات وخدمة العملاء - شركة براندولوجي</span>
+                    <span class="en-text" style="display:none;">Social Media Management & Customer Service - Brandology</span>
+                </h3>
+                <div class="date">
+                    <span class="ar-text">2022 - 2023</span>
+                    <span class="en-text" style="display:none;">2022 - 2023</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section fade-in">
+            <div class="section-title">
+                <div class="icon" style="background: var(--green);">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <span class="ar-text">المهارات</span>
+                <span class="en-text" style="display:none;">Skills</span>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: var(--green);">
+                        <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                    </div>
+                    <h4>
+                        <span class="ar-text">صياغة المحتوى وبناؤه السردي</span>
+                        <span class="en-text" style="display:none;">Content Crafting & Narrative Structure</span>
+                    </h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: var(--brown);">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    </div>
+                    <h4>
+                        <span class="ar-text">البحث والتحليل التحريري</span>
+                        <span class="en-text" style="display:none;">Research & Editorial Analysis</span>
+                    </h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: var(--pink);">
+                        <svg viewBox="0 0 24 24"><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg>
+                    </div>
+                    <h4>
+                        <span class="ar-text">تكييف الخطاب مع الجمهور والمنصة</span>
+                        <span class="en-text" style="display:none;">Audience & Platform Adaptation</span>
+                    </h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: var(--yellow);">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="var(--black)"/></svg>
+                    </div>
+                    <h4>
+                        <span class="ar-text">التخطيط الإبداعي وإدارة المنتج الإعلامي</span>
+                        <span class="en-text" style="display:none;">Creative Planning & Media Production</span>
+                    </h4>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="background: linear-gradient(135deg, var(--green), var(--brown));">
+                        <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+                    </div>
+                    <h4>
+                        <span class="ar-text">إخراج المشاهد وتوجيه الانتقالات البصرية</span>
+                        <span class="en-text" style="display:none;">Scene Direction & Visual Transitions</span>
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div class="section fade-in">
+            <div class="section-title">
+                <div class="icon" style="background: var(--pink);">
+                    <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+                </div>
+                <span class="ar-text">أعمالي ومعرض الإنتاج</span>
+                <span class="en-text" style="display:none;">Portfolio & Production Showcase</span>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Documentary -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-header">
+                        <div class="cat-icon" style="background: var(--brown);">
+                            <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+                        </div>
+                        <div>
+                            <h3>
+                                <span class="ar-text">وثائقي</span>
+                                <span class="en-text" style="display:none;">Documentary</span>
+                            </h3>
+                            <div class="count">
+                                <span class="ar-text">13 عمل</span>
+                                <span class="en-text" style="display:none;">13 Works</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="sample-title">
+                            <span class="ar-text">الصفّ الكويتي الجديد.. من الحفظ إلى الفعل!</span>
+                            <span class="en-text" style="display:none;">The New Kuwaiti Classroom: From Memorization to Action</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">العَجلةُ المُقدَّسة.. كيفَ سَرَقَ منا سباقُ الإنتاجِ لذةَ الحياة؟</span>
+                            <span class="en-text" style="display:none;">The Sacred Rush: How the Productivity Race Stole Life's Joy</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">غزة.. حين تتحوّل اللقمة إلى سلاح إبادة!</span>
+                            <span class="en-text" style="display:none;">Gaza: When Food Becomes a Weapon of Extermination</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Stories -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-header">
+                        <div class="cat-icon" style="background: var(--green);">
+                            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                        </div>
+                        <div>
+                            <h3>
+                                <span class="ar-text">قصة خبرية</span>
+                                <span class="en-text" style="display:none;">News Stories</span>
+                            </h3>
+                            <div class="count">
+                                <span class="ar-text">31 عمل</span>
+                                <span class="en-text" style="display:none;">31 Works</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="sample-title">
+                            <span class="ar-text">التعليم تحت الركام.. حين يُصبح الفصل الدراسي خيمة نازحين!</span>
+                            <span class="en-text" style="display:none;">Education Under Rubble: When Classrooms Become Refugee Tents</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">ترامب يضرب الدولار.. هل نتحرر من عبودية العملة الأمريكية؟</span>
+                            <span class="en-text" style="display:none;">Trump Hits the Dollar: Can We Break Free from Currency Dependence?</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">المدرجات تتمرد.. أوروبا تتحدى الصمت الرسمي نصرةً لغزة!</span>
+                            <span class="en-text" style="display:none;">Stadiums Rebel: Europe Challenges Official Silence for Gaza</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infographics -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-header">
+                        <div class="cat-icon" style="background: var(--pink);">
+                            <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/></svg>
+                        </div>
+                        <div>
+                            <h3>
+                                <span class="ar-text">إنفوجراف وألبوم صور</span>
+                                <span class="en-text" style="display:none;">Infographics & Photo Albums</span>
+                            </h3>
+                            <div class="count">
+                                <span class="ar-text">87 عمل</span>
+                                <span class="en-text" style="display:none;">87 Works</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="sample-title">
+                            <span class="ar-text">5 تحديات تواجه الدعاة مع جيل الإنترنت</span>
+                            <span class="en-text" style="display:none;">5 Challenges Facing Educators with the Internet Generation</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">7 خطوات تُعلّم طفلك الصلاة</span>
+                            <span class="en-text" style="display:none;">7 Steps to Teach Your Child Prayer</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">أبرز انتهاكات الاحتلال للمسجد الأقصى</span>
+                            <span class="en-text" style="display:none;">Key Violations Against Al-Aqsa Mosque</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Twitter Threads -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-header">
+                        <div class="cat-icon" style="background: var(--black);">
+                            <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" fill="white"/></svg>
+                        </div>
+                        <div>
+                            <h3>
+                                <span class="ar-text">ثريد تويتر</span>
+                                <span class="en-text" style="display:none;">Twitter Threads</span>
+                            </h3>
+                            <div class="count">
+                                <span class="ar-text">15 عمل</span>
+                                <span class="en-text" style="display:none;">15 Works</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="sample-title">
+                            <span class="ar-text">جيلُ النصر.. بين الواقعيّ والافتراضيّ</span>
+                            <span class="en-text" style="display:none;">The Generation of Victory: Between Real and Virtual</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">الجيش الذي هزمته أشباحه!</span>
+                            <span class="en-text" style="display:none;">The Army Defeated by Its Own Ghosts</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">إعمار غزة.. دينٌ في عنق الغرب!</span>
+                            <span class="en-text" style="display:none;">Rebuilding Gaza: A Debt on the West's Shoulders</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Islamic Education Series -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-header">
+                        <div class="cat-icon" style="background: linear-gradient(135deg, var(--green), var(--brown));">
+                            <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                        </div>
+                        <div>
+                            <h3>
+                                <span class="ar-text">المحظرة الشنقيطية</span>
+                                <span class="en-text" style="display:none;">Al-Mahdhara Al-Shanqitiyya Series</span>
+                            </h3>
+                            <div class="count">
+                                <span class="ar-text">18 عمل</span>
+                                <span class="en-text" style="display:none;">18 Works</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="sample-title">
+                            <span class="ar-text">جامعة على ظهور الجمال!</span>
+                            <span class="en-text" style="display:none;">A University on Camelback!</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">ملوك بلا تيجان!</span>
+                            <span class="en-text" style="display:none;">Kings Without Crowns!</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">القرآن لا يشيخ!</span>
+                            <span class="en-text" style="display:none;">The Quran Never Ages!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reels -->
+                <div class="portfolio-card">
+                    <div class="portfolio-card-header">
+                        <div class="cat-icon" style="background: var(--yellow);">
+                            <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" fill="var(--black)"/></svg>
+                        </div>
+                        <div>
+                            <h3>
+                                <span class="ar-text">ريلز</span>
+                                <span class="en-text" style="display:none;">Reels / Short Videos</span>
+                            </h3>
+                            <div class="count">
+                                <span class="ar-text">4 أعمال</span>
+                                <span class="en-text" style="display:none;">4 Works</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-card-body">
+                        <div class="sample-title">
+                            <span class="ar-text">ريل الإعلام ومعركة الهوية</span>
+                            <span class="en-text" style="display:none;">Media & The Battle for Identity</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">ريل التغريب في العالم العربي</span>
+                            <span class="en-text" style="display:none;">Westernization in the Arab World</span>
+                        </div>
+                        <div class="sample-title">
+                            <span class="ar-text">ريل العمل الخيري في الكويت</span>
+                            <span class="en-text" style="display:none;">Charitable Work in Kuwait</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Samples -->
+            <div class="product-samples fade-in">
+                <h3>
+                    <span class="ar-text">أمثلة لمنتجات ومقالات كتبتها</span>
+                    <span class="en-text" style="display:none;">Sample Products & Articles I've Written</span>
+                </h3>
+                <div class="product-list">
+                    <span class="product-tag">
+                        <span class="ar-text">أنظمة التدفئة الأرضية للمنازل في مصر</span>
+                        <span class="en-text" style="display:none;">Underfloor Heating Systems for Homes in Egypt</span>
+                    </span>
+                    <span class="product-tag">
+                        <span class="ar-text">التسخين المركزي للمياه في مصر</span>
+                        <span class="en-text" style="display:none;">Central Water Heating in Egypt</span>
+                    </span>
+                    <span class="product-tag">
+                        <span class="ar-text">مدفأة لهب كهربية ديكور ذكية وآمنة للمنازل</span>
+                        <span class="en-text" style="display:none;">Smart Decorative Electric Flame Heater for Homes</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section fade-in">
+            <div class="section-title">
+                <div class="icon" style="background: var(--yellow);">
+                    <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" fill="var(--black)"/></svg>
+                </div>
+                <span class="ar-text">التعليم</span>
+                <span class="en-text" style="display:none;">Education</span>
+            </div>
+            <div class="edu-card">
+                <div class="edu-icon">
+                    <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                </div>
+                <div class="edu-info">
+                    <h3>
+                        <span class="ar-text">بكالوريوس تجارة</span>
+                        <span class="en-text" style="display:none;">Bachelor of Commerce</span>
+                    </h3>
+                    <div class="edu-place">
+                        <span class="ar-text">جامعة بني سويف</span>
+                        <span class="en-text" style="display:none;">Beni Suef University</span>
+                    </div>
+                    <div class="edu-date">2014 - 2018</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interests Section -->
+        <div class="section fade-in">
+            <div class="section-title">
+                <div class="icon" style="background: var(--pink);">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <span class="ar-text">الاهتمامات</span>
+                <span class="en-text" style="display:none;">Interests</span>
+            </div>
+            <div class="interests-list">
+                <span class="interest-tag">
+                    <span class="ar-text">الكتابة الفكرية وصناعة الخطاب الهادف</span>
+                    <span class="en-text" style="display:none;">Intellectual Writing & Purposeful Discourse</span>
+                </span>
+                <span class="interest-tag">
+                    <span class="ar-text">متابعة القضايا العامة والإعلام التحليلي</span>
+                    <span class="en-text" style="display:none;">Public Affairs & Analytical Media</span>
+                </span>
+                <span class="interest-tag">
+                    <span class="ar-text">تطوير المحتوى الرقمي وأساليب السرد المعاصر</span>
+                    <span class="en-text" style="display:none;">Digital Content & Modern Storytelling</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Languages Section -->
+        <div class="section fade-in">
+            <div class="section-title">
+                <div class="icon" style="background: var(--green);">
+                    <svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+                </div>
+                <span class="ar-text">اللغات</span>
+                <span class="en-text" style="display:none;">Languages</span>
+            </div>
+            <div class="lang-cards">
+                <div class="lang-card">
+                    <h4>
+                        <span class="ar-text">العربية</span>
+                        <span class="en-text" style="display:none;">Arabic</span>
+                    </h4>
+                    <div class="level">
+                        <span class="ar-text">اللغة الأم</span>
+                        <span class="en-text" style="display:none;">Native</span>
+                    </div>
+                </div>
+                <div class="lang-card">
+                    <h4>
+                        <span class="ar-text">الإنجليزية</span>
+                        <span class="en-text" style="display:none;">English</span>
+                    </h4>
+                    <div class="level">
+                        <span class="ar-text">جيد</span>
+                        <span class="en-text" style="display:none;">Good</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="color-divider"></div>
+    <footer class="footer">
+        <div class="name">
+            <span class="ar-text">محمد جمال</span>
+            <span class="en-text" style="display:none;">Mohammed Gamal</span>
+        </div>
+        <p>
+            <span class="ar-text">كاتب محتوى ومخرج نصوص | إسطنبول، تركيا</span>
+            <span class="en-text" style="display:none;">Content Writer & Script Director | Istanbul, Turkey</span>
+        </p>
+    </footer>
+
+    <script>
+        function switchLang(lang) {
+            const html = document.documentElement;
+            const arTexts = document.querySelectorAll('.ar-text');
+            const enTexts = document.querySelectorAll('.en-text');
+            const btnAr = document.getElementById('btn-ar');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'en') {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                arTexts.forEach(el => el.style.display = 'none');
+                enTexts.forEach(el => el.style.display = '');
+                btnAr.classList.remove('active');
+                btnEn.classList.add('active');
+            } else {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                arTexts.forEach(el => el.style.display = '');
+                enTexts.forEach(el => el.style.display = 'none');
+                btnAr.classList.add('active');
+                btnEn.classList.remove('active');
+            }
+        }
+
+        // Scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
