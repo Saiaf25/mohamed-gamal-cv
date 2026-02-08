@@ -651,6 +651,74 @@
             }
         }
 
+        /* ===== BEST WORKS GALLERY ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 16 / 9;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .play-overlay svg {
+            width: 50px;
+            height: 50px;
+            fill: white;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* ===== SCROLL ANIMATION ===== */
         .fade-in {
             opacity: 0;
@@ -874,6 +942,67 @@
                         <span class="en-text" style="display:none;">Scene Direction & Visual Transitions</span>
                     </h4>
                 </div>
+            </div>
+        </div>
+
+        <!-- Best Works Gallery -->
+        <div class="section fade-in">
+            <div class="section-title">
+                <div class="icon" style="background: linear-gradient(135deg, var(--pink), var(--brown));">
+                    <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+                </div>
+                <span class="ar-text">معرض أفضل الأعمال</span>
+                <span class="en-text" style="display:none;">Best Works Gallery</span>
+            </div>
+            <div class="gallery-grid">
+                <a href="https://www.facebook.com/reel/1059845352826952/?s=fb_shorts_profile&stack_idx=0" target="_blank" class="gallery-item">
+                    <img src="portfolio/work-6.jpeg" alt="الخير المُتاجَر به">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <a href="https://youtu.be/GKnpVck658Q?si=HndwdyCHDrPuoKxH" target="_blank" class="gallery-item">
+                    <img src="portfolio/work-5.jpeg" alt="بين سوط الجلاد وصوت المربي">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=JwjXBQtYDHs" target="_blank" class="gallery-item">
+                    <img src="portfolio/work-2.jpeg" alt="المثالية السامة">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=0APKzR8QraE" target="_blank" class="gallery-item">
+                    <img src="portfolio/work-7.jpeg" alt="العجلة المقدسة">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=MNhOzOGBGO4" target="_blank" class="gallery-item">
+                    <img src="portfolio/work-1.jpeg" alt="زمن العزلة المادية">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=VhJacbm5cM0" target="_blank" class="gallery-item">
+                    <img src="portfolio/work-4.jpeg" alt="القراءة الأثيرة">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/watch?v=Nh8Dz42UUSo" target="_blank" class="gallery-item">
+                    <img src="portfolio/work-3.jpeg" alt="الممثل الواعظ">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
+                <a href="https://www.facebook.com/reel/1489940745611312" target="_blank" class="gallery-item">
+                    <img src="portfolio/work-8.jpeg" alt="الصف الكويتي الجديد">
+                    <div class="play-overlay">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </a>
             </div>
         </div>
 
